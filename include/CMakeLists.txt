@@ -26,5 +26,3 @@ add_library(
 
 target_include_directories(${PROJECTNAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/)
 
-
-target_compile_features(${PROJECT_NAME} INTERFACE C_STANDARD_11)
