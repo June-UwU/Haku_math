@@ -7,6 +7,10 @@
  *********************************************************************/
 #pragma once
 
+#ifndef HM_VECTOR
+#define HM_VECTOR
+
+
 #include "config.h"
 #include "hm_types.h"
 
@@ -71,3 +75,5 @@ hmf64 HM_CALL vector4_magnitude(vector4* vec);
 hms64 HM_CALL vector_dot(vector4* vec_a,vector4* vec_b);
 
 #include "impl\vector.inl"
+
+#endif // HM_VECTOR
