@@ -33,7 +33,8 @@ add_executable(
 		${global_src})
 
 
-target_link_libraries(${PROJECTNAME} haku_math)
+target_link_libraries(${PROJECT_NAME} haku_math)
+target_link_libraries(${PROJECT_NAME} gtest_main)
 add_test(NAME UnitTest COMMAND ${PROJECT_NAME})
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../include)
