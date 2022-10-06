@@ -9,7 +9,7 @@
  *********************************************************************/
 #pragma once
 
-#include "../hm_func.h"
+#include <math.h>
 #include "../config.h"
 #include "../hm_types.h"
 #include "vector.h"
@@ -103,7 +103,7 @@ inline hmf64 HM_CALL vector4_magnitude(vector4* vec)
 #ifdef  HM_SSE
 	vector4 vec_squ = _mm_mul_ps(*vec, *vec); // squared
 	hmf32 ret_val = vector4_horizontal_sum(&vec_squ);
-	return hm_sqrtf(ret_val);
+	return sqrtf(ret_val);
 #else
 	float sum = vec->x + vec->y + vec->z + vec->w;
 	return hm_sqrtf(sum);

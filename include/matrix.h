@@ -7,6 +7,7 @@
  *********************************************************************/
 #pragma once
 
+
 #include "config.h"
 #include "hm_types.h"
 
@@ -47,3 +48,4 @@ void matrix4x4_mul(matrix4x4* out_mat, matrix4x4* mat_a, matrix4x4* mat_b);
 
 
 #include "impl/matrix.inl"
+
