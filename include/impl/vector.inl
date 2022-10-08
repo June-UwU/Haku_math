@@ -20,7 +20,7 @@
  * \param vec pointer to the vector to sum of 
  * \return the sum of elements of the vec
  */
-hmf32 vector4_horizontal_sum(vector4* vec)
+inline hmf32 HM_CALL vector4_horizontal_sum(vector4* vec)
 {
 #ifdef HM_SSE
 	vector4 imed1 = *vec;
@@ -37,7 +37,7 @@ hmf32 vector4_horizontal_sum(vector4* vec)
 #endif //HM_SSE
 }
 
-void HM_CALL load_vector4_float(vector4* vec, hmf32 x, hmf32 y, hmf32 z, hmf32 w)
+inline void HM_CALL load_vector4_float(vector4* vec, hmf32 x, hmf32 y, hmf32 z, hmf32 w)
 {
 #ifdef HM_SSE
 	* vec = _mm_set_ps(x, y, z, w);
@@ -49,7 +49,7 @@ void HM_CALL load_vector4_float(vector4* vec, hmf32 x, hmf32 y, hmf32 z, hmf32 w
 #endif
 }
 
-void HM_CALL load_vector4_zero(vector4* vec)
+inline void HM_CALL load_vector4_zero(vector4* vec)
 {
 #ifdef HM_SSE
 	* vec = _mm_setzero_ps();
@@ -61,7 +61,7 @@ void HM_CALL load_vector4_zero(vector4* vec)
 #endif
 }
 
-void HM_CALL load_unit_vector4(vector4* vec)
+inline void HM_CALL load_unit_vector4(vector4* vec)
 {
 #ifdef HM_SSE
 	* vec = _mm_setr_ps(1.0f, 1.0f, 1.0f, 1.0f);
@@ -74,7 +74,7 @@ void HM_CALL load_unit_vector4(vector4* vec)
 }
 
 
-void HM_CALL vector4_add(vector4* out_vec, vector4* vec_a, vector4* vec_b)
+inline void HM_CALL vector4_add(vector4* out_vec, vector4* vec_a, vector4* vec_b)
 {
 #ifdef HM_SSE
 	* out_vec = _mm_add_ps(*vec_a, *vec_b);
@@ -86,7 +86,7 @@ void HM_CALL vector4_add(vector4* out_vec, vector4* vec_a, vector4* vec_b)
 #endif // HM_SSE
 }
 
-void HM_CALL vector4_sub(vector4* out_vec, vector4* vec_a, vector4* vec_b)
+inline void HM_CALL vector4_sub(vector4* out_vec, vector4* vec_a, vector4* vec_b)
 {
 #ifdef HM_SSE
 	* out_vec = _mm_sub_ps(*vec_a, *vec_b);
@@ -110,7 +110,7 @@ inline hmf64 HM_CALL vector4_magnitude(vector4* vec)
 #endif //  HM_SSE
 }
 
-hms64 HM_CALL vector_dot(vector4* vec_a, vector4* vec_b)
+inline hms64 HM_CALL vector_dot(vector4* vec_a, vector4* vec_b)
 {
 #ifdef HM_SSE
 	vector4 imed1 = _mm_mul_ps(*vec_a, *vec_b);

@@ -11,7 +11,7 @@
 #include "../hm_types.h"
 
 
-hmf32 m128_horizontal_sum(__m128* vec)
+inline hmf32 HM_CALL m128_horizontal_sum(__m128* vec)
 {
 #ifdef HM_SSE
 	__m128 imed1 = *vec;
@@ -28,7 +28,7 @@ hmf32 m128_horizontal_sum(__m128* vec)
 #endif //HM_SSE
 }
 
-void load_matrix4x4(matrix4x4* mat, hmf32* arr)
+inline void HM_CALL load_matrix4x4(matrix4x4* mat, hmf32* arr)
 {
 #ifdef HM_SSE
 	mat->row[0] = _mm_set_ps(arr[0], arr[1], arr[2], arr[3]);
@@ -46,7 +46,7 @@ void load_matrix4x4(matrix4x4* mat, hmf32* arr)
 #endif // HM_SSE
 }
 
-void matrix4x4_add(matrix4x4* out_mat, matrix4x4* mat_a, matrix4x4* mat_b)
+inline void HM_CALL matrix4x4_add(matrix4x4* out_mat, matrix4x4* mat_a, matrix4x4* mat_b)
 {
 #ifdef HM_SSE
 	out_mat->row[0] = _mm_add_ps(mat_a->row[0], mat_b->row[0]);
@@ -65,7 +65,7 @@ void matrix4x4_add(matrix4x4* out_mat, matrix4x4* mat_a, matrix4x4* mat_b)
 
 }
 
-void matrix4x4_sub(matrix4x4* out_mat, matrix4x4* mat_a, matrix4x4* mat_b)
+inline void HM_CALL matrix4x4_sub(matrix4x4* out_mat, matrix4x4* mat_a, matrix4x4* mat_b)
 {
 #ifdef HM_SSE
 	out_mat->row[0] = _mm_sub_ps(mat_a->row[0], mat_b->row[0]);
@@ -83,7 +83,7 @@ void matrix4x4_sub(matrix4x4* out_mat, matrix4x4* mat_a, matrix4x4* mat_b)
 #endif // HM_SSE
 }
 
-void matrix4x4_mul(matrix4x4* out_mat, matrix4x4* mat_a, matrix4x4* mat_b)
+inline void HM_CALL matrix4x4_mul(matrix4x4* out_mat, matrix4x4* mat_a, matrix4x4* mat_b)
 {
 	// TODO : make sure there is no other way to do this
 #ifdef HM_SSE
